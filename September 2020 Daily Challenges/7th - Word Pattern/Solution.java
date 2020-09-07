@@ -14,7 +14,15 @@ class Solution {
         List<Character> characters = new ArrayList<>();
         List<String> strings = new ArrayList<>();
 
+        for (int i = 0; i < words.length; i++) {
 
+            final char patternChar = pattern.charAt(i);
+
+            // Firstly, we need to check if the letter in the pattern has been seen before
+            characters.stream()
+                    .anyMatch(character -> character == patternChar);
+
+        }
 
         return false;
     }
