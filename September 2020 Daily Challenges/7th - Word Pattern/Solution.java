@@ -24,7 +24,7 @@ class Solution {
 
                 // check matching str equals the current word,
                 // else return false.
-                if(matchingHash.get(patternChar).equals(patternStr)){
+                if(!matchingHash.get(patternChar).equals(patternStr)){
                     return false;
                 }
             }else{
