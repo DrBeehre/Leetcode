@@ -30,12 +30,12 @@ class Solution {
 
                 // check matching str equals the current word,
                 // else return false.
-                if(matchingPairOnChar.get().getMatchingString() != words[i]){
+                if(!matchingPairOnChar.get().getMatchingString().equals(words[i])){
                     return false;
                 }
             }else{
                 Optional<Pair> matchingPairOnWord = matchingPatternStrings.stream()
-                        .filter(pair -> pair.getMatchingString() == patternStr)
+                        .filter(pair -> pair.getMatchingString().equals(patternStr))
                         .findFirst();
 
                 if(matchingPairOnWord.isPresent()){
@@ -44,7 +44,6 @@ class Solution {
 
                     Pair newPair = new Pair(patternChar, patternStr);
                     matchingPatternStrings.add(newPair);
-                    continue;
                 }
             }
         }
