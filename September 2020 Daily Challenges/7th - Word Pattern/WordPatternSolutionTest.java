@@ -2,7 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class SolutionTest {
+public class WordPatternSolutionTest {
 
     @Test
     public void test_Matching_Pattern_abba(){
@@ -10,7 +10,7 @@ public class SolutionTest {
         String pattern = "abba";
         String str = "dog cat cat dog";
 
-        assertEquals(true, Solution.wordPattern(pattern, str));
+        assertEquals(true, WordPatternSolution.wordPattern(pattern, str));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class SolutionTest {
         String pattern = "aaaa";
         String str = "dog cat cat fish";
 
-        assertEquals(false, Solution.wordPattern(pattern, str));
+        assertEquals(false, WordPatternSolution.wordPattern(pattern, str));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class SolutionTest {
         String pattern = "aaaa";
         String str = "dog cat cat dog";
 
-        assertEquals(false, Solution.wordPattern(pattern, str));
+        assertEquals(false, WordPatternSolution.wordPattern(pattern, str));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class SolutionTest {
         String pattern = "abba";
         String str = "dog dog dog dog";
 
-        assertEquals(false, Solution.wordPattern(pattern, str));
+        assertEquals(false, WordPatternSolution.wordPattern(pattern, str));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class SolutionTest {
         String pattern = "abbac";
         String str = "dog dog dog dog";
 
-        assertEquals(false, Solution.wordPattern(pattern, str));
+        assertEquals(false, WordPatternSolution.wordPattern(pattern, str));
     }
 }

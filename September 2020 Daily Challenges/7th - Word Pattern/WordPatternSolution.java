@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-class Solution {
+class WordPatternSolution {
     public static boolean wordPattern(String pattern, String str) {
 
         String[] words = str.split(" ");
