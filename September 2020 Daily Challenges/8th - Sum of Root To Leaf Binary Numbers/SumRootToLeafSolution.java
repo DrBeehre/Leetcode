@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SumRootToLeafSolution {
-    public int sumRootToLeaf(TreeNode root) {
+    public static int sumRootToLeaf(TreeNode root) {
 
 
         List<String> binaries = getValuesFromRootToLeafs(root);
@@ -15,7 +15,7 @@ public class SumRootToLeafSolution {
         return sum;
     }
 
-    private List<String> getValuesFromRootToLeafs(TreeNode root){
+    private static List<String> getValuesFromRootToLeafs(TreeNode root){
 
         List<String> binaryValues = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class SumRootToLeafSolution {
         return binaryValues;
     }
 
-    private List<String> getValuesFromRootToLeafs(TreeNode parent, String currentValue){
+    private static List<String> getValuesFromRootToLeafs(TreeNode parent, String currentValue){
 
         List<String> binaryValues = new ArrayList<>();
         String currentVal = currentValue + parent.val;
