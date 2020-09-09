@@ -5,38 +5,43 @@ public class SumRootToLeafSolution {
     public int sumRootToLeaf(TreeNode root) {
 
 
-        List<Integer> binaries = getValuesFromRootToLeafs(root);
+        List<String> binaries = getValuesFromRootToLeafs(root);
 
-        return 0;
+        int sum = 0;
+        for (String binary : binaries) {
+            sum += Integer.parseInt(binary, 2);
+        }
+
+        return sum;
     }
 
-    private List<Integer> getValuesFromRootToLeafs(TreeNode root){
+    private List<String> getValuesFromRootToLeafs(TreeNode root){
 
-        List<Integer> binaryValues = new ArrayList<>();
+        List<String> binaryValues = new ArrayList<>();
 
         if(root.left == null && root.right == null) {
             // We are at a leaf
-            binaryValues.add(root.val);
+            binaryValues.add(Integer.toString(root.val));
             return binaryValues;
         }
 
         if(root.left != null){
             // Move down left side
-            binaryValues.addAll(getValuesFromRootToLeafs(root.left, root.val));
+            binaryValues.addAll(getValuesFromRootToLeafs(root.left, Integer.toString(root.val)));
         }
 
         if(root.right != null){
             // Move down right side
-            binaryValues.addAll(getValuesFromRootToLeafs(root.right, root.val));
+            binaryValues.addAll(getValuesFromRootToLeafs(root.right, Integer.toString(root.val)));
         }
 
         return binaryValues;
     }
 
-    private List<Integer> getValuesFromRootToLeafs(TreeNode parent, Integer currentValue){
+    private List<String> getValuesFromRootToLeafs(TreeNode parent, String currentValue){
 
-        List<Integer> binaryValues = new ArrayList<>();
-        Integer currentVal = concatIntegers(currentValue, parent.val);
+        List<String> binaryValues = new ArrayList<>();
+        String currentVal = currentValue + parent.val;
 
         if(parent.left == null && parent.right == null) {
             // We are at a leaf
@@ -55,9 +60,5 @@ public class SumRootToLeafSolution {
         }
 
         return binaryValues;
-    }
-
-    private Integer concatIntegers(Integer a, Integer b){
-        return Integer.parseInt(a.toString() + b.toString());
     }
 }
