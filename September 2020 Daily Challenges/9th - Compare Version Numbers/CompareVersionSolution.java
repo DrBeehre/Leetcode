@@ -5,16 +5,16 @@ public class CompareVersionSolution {
         String[] versionOneBreakDown = version1.split("\\.");
         String[] versionTwoBreakDown = version2.split("\\.");
 
-        int shortestLength;
+        int greatestLength;
         if(versionOneBreakDown.length > versionTwoBreakDown.length){
-            shortestLength = version2.length();
+            greatestLength = versionOneBreakDown.length;
         } else {
-            shortestLength = version1.length();
+            greatestLength = versionTwoBreakDown.length;
         }
 
-        for (int i = 0; i < shortestLength; i++) {
-            Integer v1 = Integer.parseInt(versionOneBreakDown[i]);
-            Integer v2 = Integer.parseInt(versionTwoBreakDown[i]);
+        for (int i = 0; i < greatestLength; i++) {
+            int v1 = i < versionOneBreakDown.length ? Integer.parseInt(versionOneBreakDown[i]) : 0;
+            int v2 = i < versionTwoBreakDown.length ? Integer.parseInt(versionTwoBreakDown[i]) : 0;
 
             if(v1 > v2){
                 return 1;

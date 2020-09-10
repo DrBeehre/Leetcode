@@ -20,4 +20,20 @@ public class CompareVersionSolutionTest {
         assertEquals(0, CompareVersionSolution.compareVersion(version1, version2));
     }
 
+    @Test
+    public void inital_test_3(){
+        String version1 = "01";
+        String version2 = "1";
+
+        assertEquals(0, CompareVersionSolution.compareVersion(version1, version2));
+    }
+
+    @Test
+    public void inital_test_4(){
+        String version1 = "1";
+        String version2 = "1.1";
+
+        assertEquals(-1, CompareVersionSolution.compareVersion(version1, version2));
+    }
+
 }
