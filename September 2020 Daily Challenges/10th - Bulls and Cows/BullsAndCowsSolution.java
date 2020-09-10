@@ -12,12 +12,16 @@ public class BullsAndCowsSolution {
             if(secretChars[i] == guessChars[i]){
                 bulls++;
                 secretChars[i] = 'x'; // being set to x, means it can't be used again
-            }else if (isInArray(secretChars, guessChars[i])){
+                guessChars[i] = 'y';
+            }
+        }
+
+        for (int i = 0; i < secretChars.length; i++) {
+            if(isInArray(secretChars, guessChars[i])){
                 cows++;
             }
         }
 
-        // TODO: needs to be replaced with an actual return value
         return bulls + "A" + cows +"B";
     }
 
