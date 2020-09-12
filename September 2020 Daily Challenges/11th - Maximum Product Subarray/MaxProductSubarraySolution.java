@@ -5,22 +5,32 @@ public class MaxProductSubarraySolution {
             return 0;
         }
 
-        Integer largestProduct = null;
-        Integer runningProduct = null;
+        Integer absoluteLargestProduct = null;
 
-        for (int i = 0; i < nums.length; i++) {
-            if(runningProduct == null){
-                runningProduct = nums[i];
-            }else if(nums[i] == 0) {
-                runningProduct = null;
-            }else{
-                runningProduct = runningProduct * nums[i];
+        for (int j = 0; j < nums.length; j++) {
+
+            Integer largestProduct = null;
+            Integer runningProduct = null;
+
+            for (int i = j; i < nums.length; i++) {
+                if(runningProduct == null){
+                    runningProduct = nums[i];
+                }else if(nums[i] == 0) {
+                    runningProduct = null;
+                }else{
+                    runningProduct = runningProduct * nums[i];
+                }
+
+                if(largestProduct == null) largestProduct = runningProduct;
+                if(runningProduct != null && runningProduct > largestProduct) largestProduct = runningProduct;
+                else if (nums[i] > largestProduct) largestProduct = nums[i];
             }
 
-            if(largestProduct == null) largestProduct = runningProduct;
-            if(runningProduct != null && runningProduct > largestProduct) largestProduct = runningProduct;
+            if(absoluteLargestProduct == null && largestProduct != null) absoluteLargestProduct = largestProduct;
+            if(absoluteLargestProduct < largestProduct) absoluteLargestProduct = largestProduct;
         }
 
-        return largestProduct;
+
+        return absoluteLargestProduct;
     }
 }
